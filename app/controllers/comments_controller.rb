@@ -1,5 +1,6 @@
 class CommentsController < ApplicationController
-  before_action :set_comment, :set_movie, only: [:edit, :show, :update]
+  before_action :set_comment, only: [:edit, :show, :update]
+  before_action :set_movie, only: [:create, :new, :edit, :show, :update]
   before_action :authenticate_user!
 
   def index
@@ -16,8 +17,14 @@ class CommentsController < ApplicationController
   end
 
   def create
-    # @comment = @movie.comments.new(movie_params)
-    # @comment.user_id = current_user.id
+    @comment = @movie.comments.new(comment_params)
+    @comment.user_id = current_user.id
+
+    if @comment.save
+      redirect_to movie_path(@movie)
+    else
+      render :new
+    end
   end
 
   def update

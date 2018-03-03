@@ -1,6 +1,7 @@
 <h1>Movie: <%= @movie.title %></h1>
-
+<%= link_to '<< back', movies_path %>
 <br>
+<hr>
 
 <iframe src="<%= @movie.trailer %>" frameborder="0" allowfullscreen></iframe>
 <ul>
@@ -11,7 +12,7 @@
 <%= link_to 'new comment', new_movie_comment_path(@movie) %>
 <ul>
   <% @movie.comments.each do |comment| %>
-         
+      <li> 
       <%= link_to User.find(comment.user_id).first_name, edit_user_registration_path(comment.user_id) %>   
       <!-- <%= User.find(comment.user_id).first_name %> -->
       @ 
