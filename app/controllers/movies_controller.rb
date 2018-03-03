@@ -1,5 +1,6 @@
 class MoviesController < ApplicationController
   before_action :set_movie, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!
 
   def index
     @movies = Movie.all
@@ -7,6 +8,7 @@ class MoviesController < ApplicationController
 
   def show
     @user = User.all
+    
   end
 
   def new
@@ -47,6 +49,6 @@ class MoviesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def movie_params
-      params.require(:move).permit(:title, :trailer)
+      params.require(:movie).permit(:title, :trailer)
     end
 end

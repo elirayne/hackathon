@@ -1,4 +1,8 @@
+
 <h1>Movies#index</h1>
+
+<h2>Welcome <%= current_user.first_name %> 
+<%= button_to 'Log out', destroy_user_session_path, method: :delete %>
 
 <%= link_to 'Create a new move', new_movie_path %>
 <br>
@@ -28,6 +32,4 @@
         <% end %>
         </div>
         </li>
-
-
-</ul>
+    </ul>

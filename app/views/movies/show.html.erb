@@ -8,10 +8,18 @@
 </ul>
 
 <p>Comments:</p>
+<%= link_to 'new comment', new_movie_comment_path(@movie) %>
 <ul>
   <% @movie.comments.each do |comment| %>
-         <%= link_to comment.body %>
-      [<%= link_to User.find(comment.user_id).first_name %>]  
+         
+      <%= link_to User.find(comment.user_id).first_name, edit_user_registration_path(comment.user_id) %>   
+      <!-- <%= User.find(comment.user_id).first_name %> -->
+      @ 
+      <%= comment.body %>
+      [ 
+        <%= link_to 'edit', edit_movie_comment_path(@movie, comment) %>
+        <%= link_to 'delete', movie_path(@movie), method: :delete %>
+      ]
     </li>
     
   <% end %>
