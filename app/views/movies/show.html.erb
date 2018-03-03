@@ -2,5 +2,14 @@
 
 <br>
 
-<embed src=" <%= @movie.trailer %> " allowfullscreen="true">
+<iframe src="https://www.youtube.com/embed/F9Bo89m2f6g" frameborder="0" allowfullscreen></iframe>
 
+<p>comments:</p>
+<ul>
+  <% @movie.comments.each do |comment| %>
+    <li>
+         <%= link_to comment.body %>
+      [<%= link_to comment.user_id %>]  
+    </li>
+  <% end %>
+</ul>

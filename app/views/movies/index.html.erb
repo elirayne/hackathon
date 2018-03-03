@@ -7,6 +7,9 @@
   <% @movies.each do |movie| %>
     <li>
       <%= link_to movie.title, movie_path(movie) %>
+      - [ <%= link_to 'edit', edit_movie_path(movie) %>
+          <%= link_to 'delete', movie_path(movie), method: :delete%>
+      ]
     </li>
   <% end %>
 </ul>
