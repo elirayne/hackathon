@@ -3,16 +3,18 @@
 <%= link_to 'Create a new move', new_movie_path %>
 <br>
 
-     <ul>
+     <ul class="row">
 
-           <div class="row">
-           <div class="col s4">
+           <!-- <div class="row">
+           <div class="col s4"> -->
        <% @movies.each do |movie| %>
-       <li>
-         <div class="card">
+
+       <li class="col s4">
+          <div class="card">
            <div class="card-image">
-              <img src="https://source.unsplash.com/random">
-              <span class="card-title"><%= link_to movie.title, movie_path(movie) %></span>
+             <iframe src="https://www.youtube.com/watch?v=KuMXBiO1kbs" frameborder="0" allowfullscreen></iframe>
+
+              <span class="card-title text-grey darken-3"><%= link_to movie.title, movie_path(movie) %></span>
               </div>
 
             <div class="card-content">
@@ -24,7 +26,8 @@
 
             </div>
         <% end %>
+        </div>
         </li>
-      </ul>
-</div>
-</div>
+
+
+</ul>
