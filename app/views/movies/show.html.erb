@@ -3,13 +3,16 @@
 <br>
 
 <iframe src="<%= @movie.trailer %>" frameborder="0" allowfullscreen></iframe>
+<ul>
+  <a>-<%= @movie.genre %>-</a> <%= @movie.duration %> <a href="<%=@movie.description%>">Click here for a full description</a>
+</ul>
 
-<p>comments:</p>
+<p>Comments:</p>
 <ul>
   <% @movie.comments.each do |comment| %>
-    <li>
          <%= link_to comment.body %>
       [<%= link_to comment.user_id %>]  
     </li>
+    
   <% end %>
 </ul>
