@@ -1,12 +1,13 @@
 Rails.application.routes.draw do
 
-
-
 root to: 'movies#index'
 # devise_for :users
 
 resources :accounts 
-resources :movies
+
+resources :movies do
+  resources :comments
+end
 
 devise_for :users, controllers: {
    registrations: 'users/registrations'
