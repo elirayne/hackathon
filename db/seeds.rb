@@ -235,3 +235,17 @@ Movie.create(
         description: 'http://www.imdb.com/title/tt0117802/',
         trailer: 'https://www.youtube.com/embed/nWCct8XbQD0'
 )
+
+user1 = User.create(
+  first_name:   'Bob',
+  last_name:    'Hope',
+  email:        'bob@hope.com',
+  password:     'password'
+)
+
+bourne = Movie.find_by(title: 'The Bourne Identity')
+
+bourne.comments.create(
+  user_id:  user1.id,
+  body:     'here are some comments'
+)

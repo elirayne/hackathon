@@ -11,7 +11,7 @@
 <ul>
   <% @movie.comments.each do |comment| %>
          <%= link_to comment.body %>
-      [<%= link_to comment.user_id %>]  
+      [<%= link_to User.find(comment.user_id).first_name %>]  
     </li>
     
   <% end %>
