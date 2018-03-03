@@ -1,13 +1,30 @@
-<h1>Browse Movies</h1>
+<h1>Movies#index</h1>
 
-<%= link_to 'Create a new movie', new_movie_path %>
-<ul>
-  <% @movies.each do |movie| %>
-    <li>
-      <%= link_to movie.title, movie_path(movie) %>
-      - [ <%= link_to 'edit', edit_movie_path(movie) %>
-          <%= link_to 'delete', movie_path(movie), method: :delete%>
-      ]
-    </li>
-  <% end %>
-</ul>
+<%= link_to 'Create a new move', new_movie_path %>
+<br>
+
+     <ul>
+
+           <div class="row">
+           <div class="col s4">
+       <% @movies.each do |movie| %>
+       <li>
+         <div class="card">
+           <div class="card-image">
+              <img src="https://source.unsplash.com/random">
+              <span class="card-title"><%= link_to movie.title, movie_path(movie) %></span>
+              </div>
+
+            <div class="card-content">
+              <!-- put descripion here -->
+
+              <div class="card-action"><%= link_to 'edit', edit_movie_path(movie) %>
+                 <%= link_to 'delete', movie_path(movie), method: :delete%>
+              </div>
+
+            </div>
+        <% end %>
+        </li>
+      </ul>
+</div>
+</div>

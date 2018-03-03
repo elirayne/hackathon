@@ -1,4 +1,4 @@
-// @import "materialize";
+@import "materialize";
 // html,
 // body {
 //     height: 100%;
@@ -12,18 +12,9 @@
 //     vertical-align: middle;
 //     background: #4ECDC4;
 // }
+@import "https://fonts.googleapis.com/icon?family=Material+Icons";
 
-// #login-page {
-//    width: 500px;
-// }
 
-// .card {
-//      position: absolute;
-//      left: 50%;
-//      top: 50%;
-//      -moz-transform: translate(-50%, -50%)
-//      -webkit-transform: translate(-50%, -50%)
-//      -ms-transform: translate(-50%, -50%)
-//      -o-transform: translate(-50%, -50%)
-//      transform: translate(-50%, -50%);
-// }
+.container {
+  max-width: 100%;
+}
