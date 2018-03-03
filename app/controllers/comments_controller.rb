@@ -1,6 +1,6 @@
 class CommentsController < ApplicationController
-  before_action :set_comment, only: [:edit, :show, :update]
-  before_action :set_movie, only: [:create, :new, :edit, :show, :update]
+  before_action :set_comment, only: [:destroy, :edit, :show, :update]
+  before_action :set_movie, only: [:destroy, :create, :new, :edit, :show, :update]
   before_action :authenticate_user!
 
   def index
@@ -33,6 +33,11 @@ class CommentsController < ApplicationController
     else
       render  :edit
     end
+  end
+
+  def destroy
+    @comment.destroy
+    redirect_to movie_path(@movie)
   end
 
 

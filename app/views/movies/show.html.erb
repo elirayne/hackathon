@@ -19,7 +19,7 @@
       <%= comment.body %>
       [ 
         <%= link_to 'edit', edit_movie_comment_path(@movie, comment) %>
-        <%= link_to 'delete', movie_path(@movie), method: :delete %>
+        <%= link_to 'delete', movie_comment_path(@movie, comment), method: :delete %>
       ]
     </li>
     
