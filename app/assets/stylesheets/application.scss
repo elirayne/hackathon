@@ -1,2 +1,27 @@
 @import "materialize";
 @import "https://fonts.googleapis.com/icon?family=Material+Icons";
+
+
+.thumbnail {
+  overflow-wrap: break-word;
+
+}
+
+.card-content {
+  height: 125px;
+}
+
+.card-action {
+  text-align: center;
+  font-size: 10px; 
+  // display: inline-block;
+  overflow: hidden;
+  // white-space: nowrap;
+  // font-size: 1vw;
+}
+
+.hidden {
+  background-color: blue;
+  z-index: -1;
+  display: none
+}

@@ -1,36 +1,44 @@
 
 <h1>Browse Movies</h1>
 <h4>Welcome <%= current_user.first_name %> </h4>
-  <div>
+<div>
   <%= button_to 'Log out', destroy_user_session_path, method: :delete %>
+  <%= link_to 'Create a new movie', new_movie_path %>
+  <hr>
+</div>
+<br>
+    
 
-    <%= link_to 'Create a new movie', new_movie_path %>
-  </div>
-    <br>
-    
-        <ul class="row">
-          <% @movies.each do |movie| %>
-    
-          <li class="col s4">
-             <div class="card">
-              <div class="card-image">
-                   <div class="thumbnail">
-                     <iframe src="<%=movie.trailer%>"></iframe>
-               </div>
-              </div>
-              <br>
-                 <span class="card-title text-grey darken-3"><%= link_to movie.title, movie_path(movie) %></span>
-                 </div>
-    
-           <div class="card-content">
-                 <!-- put descripion here -->
-    
-             <div class="card-action"><%= link_to 'edit', edit_movie_path(movie) %>
-               <%= link_to 'delete', movie_path(movie), method: :delete%>
-             </div>
-    
-               </div>
-           <% end %>
-           </div>
-           </li>
-    </ul>
+    <div class="row">
+      <% @movies.each do |movie| %>
+      <% temp= movie.trailer.split('/').last %>
+        <div class="col s4">
+          <div class="card">
+            <div class="card-image">
+              <img src="https://img.youtube.com/vi/<%=temp%>/sddefault.jpg">
+            
+              <span class="card-title"></span>
+            </div>
+
+<!--        onClick() use this to swap the hidden tag, and add scr to it (lazy load)
+            then start it playing
+            <iframe class="card-image hidden"src="<%=movie.trailer%>"></iframe>
+            -->
+
+            <div class="card-content">
+              <p>
+                <%=movie.title%><br>
+                <%=movie.duration%><br>
+                <%=movie.genre%><br>
+              </p>
+            </div>
+            <div class="card-action">
+                <%= link_to 'edit', edit_movie_path(movie) %>
+                <%= link_to 'comments', movie_path(movie) %>
+                <%= link_to 'delete', movie_path(movie), method: :delete%>
+                <%= link_to 'imdb', movie.description%>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
